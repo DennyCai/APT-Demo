@@ -7,7 +7,7 @@ import com.denny.cursormapper.table.UserColums;
 /**
  * Created by hasee on 2016/4/26.
  */
-@Table(name ="user")
+@Table(name="")
 public class UserModel {
     @Columns(name = UserColums.ID)
     private long id;

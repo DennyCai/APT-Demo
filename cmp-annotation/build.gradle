@@ -4,4 +4,5 @@ targetCompatibility = JavaVersion.VERSION_1_7
 sourceCompatibility = JavaVersion.VERSION_1_7
 
 dependencies {
+    compile 'com.android.support:support-annotations:24.1.0'
 }

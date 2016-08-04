@@ -1,0 +1,29 @@
+package <bean.packageName>;
+
+public class <bean.genClassName>{
+
+    public final static String TABLE_NAME = "<bean.tableName>";
+
+    public final static String CREATE_TABLE ="CREATE TABLE <bean.tableName> (<bean.createTable>)";
+
+    public final android.content.ContentValues toContentValues(<bean.packageName>.<bean.className> bean){
+        if(bean==null){
+            return null;
+        }
+        android.content.ContentValues values = new android.content.ContentValues();
+        <fields:{field|values.put("<field.name>",bean.<field.getter>());
+        }>
+        return values;
+    }
+
+    public final <bean.packageName>.<bean.className> fromCursor(android.database.Cursor cursor){
+        if(cursor==null||cursor.isClosed())
+            return null;
+        <bean.packageName>.<bean.className> bean = new <bean.packageName>.<bean.className>();
+        <fields:{field|
+int <field.name>Index = cursor.getColumnIndex("<field.name>");
+if(!cursor.isNull(<field.name>Index)) bean.<field.setter>(cursor.<field.mapper>(<field.name>Index));
+        }>
+        return bean;
+    }
+}
